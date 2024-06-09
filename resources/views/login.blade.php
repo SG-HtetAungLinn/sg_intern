@@ -18,15 +18,15 @@
             <div class="form">
                 <form action="{{ route('userLogin') }}" method="POST" id="login-form">
                     @csrf
-                    <div class="form-outline mb-4 ">
-                        <input type="email" id="email" name="email" class="form-control" value="old()" autofocus />
+                    <div class="form-outline " style="margin-bottom: 2rem">
+                        <input type="email" id="email" name="email" class="form-control" value="{{old('email')}}" autofocus autocomplete="false"/>
                         <label class="form-label" for="email">Email address</label>
                     </div>
-                    <div class="form-outline mb-4">
+                    <div class="form-outline " style="margin-bottom: 2rem">
                         <input type="password" id="password" name="password" class="form-control" />
                         <label class="form-label" for="password">Password</label>
                     </div>
-                    <div class="form-outline mb-4">
+                    <div class="form-outline mb-4" >
                         <button class="btn btn-theme btn-block">
                             Login
                         </button>
@@ -44,5 +44,27 @@
 @endsection
 
 @section('script')
-    {!! JsValidator::formRequest('App\Http\Requests\LoginRequest'), '#login-form' !!}
+    {!! JsValidator::formRequest('App\Http\Requests\LoginRequest') !!}
+    <script>
+        @if(session('status'))
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Register Successfully! Please Login",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+            });
+        @endif
+        @if (session('error')) 
+        Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: {{$error}},
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+            });
+        @endif
+    </script>
 @endsection

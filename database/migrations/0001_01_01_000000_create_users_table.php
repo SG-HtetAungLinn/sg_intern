@@ -12,12 +12,18 @@ return new class () extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name', 200);
+            $table->string('email', 150)->unique();
+            $table->string('school', 150);
+            $table->string('education', 200);
+            $table->enum('gender', ['male', 'female']);
+            $table->longText('address')->nullable();
+            $table->string('role', 10)->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
 

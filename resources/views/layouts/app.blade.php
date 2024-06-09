@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Softguide Software House</title>
+    <title>@yield('title')</title>
     <link rel="shortcut icon" href="{{asset('img/logo.jpg')}}" type="image/x-icon" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
@@ -22,15 +22,9 @@
 </head>
 
 <body style="background-color: #eff7ff;">
-    <div class="container">
-        <div class="login-container">
-            <div class="row">
-                {{-- content start --}}
-                @yield('content')
-                {{-- content end --}}
-            </div>
-        </div>
-    </div>
+
+@yield('content')
+
 </body>
 <!-- Jquery -->
 <script type="text/javascript" src="{{ asset('./js/jquery.js') }}"></script>
@@ -43,8 +37,6 @@
 <script type="text/javascript" src="{{ asset('./js/swipper.js') }}"></script>
 <!-- wow -->
 <script type="text/javascript" src="{{ asset('./js/wow.js') }}"></script>
-{{-- sweet alert 2 --}}
-<script src="{{asset('./js/sweetalert2.min.js')}}"></script>
 {{-- laravel js validation --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>

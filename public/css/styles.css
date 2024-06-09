@@ -53,7 +53,9 @@ html::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 20px;
 }
 .auth-logo {
     width: 100px;
@@ -64,11 +66,15 @@ html::-webkit-scrollbar-thumb {
 }
 .auth-title {
     font-weight: 800;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 @media (max-width: 767px) {
     .img-card {
         display: none !important;
+    }
+    .login-container {
+        display: block;
+        padding: 80px 20px 20px 20px;
     }
 }
 /* Nav Section */
