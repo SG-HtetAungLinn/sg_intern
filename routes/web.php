@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [AuthController::class, 'auth'])->name('auth');
@@ -18,14 +20,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     });
 
     Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-        Route::get('/', function () {
-            return view('admin.dashboard.dashboard');
-        })->name('admin');
+        Route::get('/', [AdminController::class,'index'])->name('admin');
     });
 
     Route::group(['prefix' => 'student', 'middleware' => 'student'], function () {
-        Route::get('/', function () {
-            return view('admin.dashboard.dashboard');
-        })->name('student');
+        Route::get('/', [StudentController::class, 'index'])->name('student');
     });
 });
