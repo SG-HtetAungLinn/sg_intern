@@ -60,7 +60,7 @@
         Swal.fire({
                 position: "top-end",
                 icon: "error",
-                title: {{$error}},
+                title: {{session('error')}},
                 showConfirmButton: false,
                 timer: 2000,
                 timerProgressBar: true,
