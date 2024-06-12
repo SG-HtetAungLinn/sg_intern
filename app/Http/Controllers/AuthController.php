@@ -41,17 +41,30 @@ class AuthController extends Controller
     // Login
     public function userLogin(LoginRequest $request)
     {
-        $validation = Auth::guard()->attempt([
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return redirect()
+                ->back()
+                ->with(['error' => 'The provided email does not exist!'])
+                ->withInput();
+        } elseif (!Hash::check($request->password, $user->password)) {
+            return redirect()
+                ->back()
+                ->with(['error' => 'The provided password is incorrect!'])
+                ->withInput();
+        }
+
+        if (Auth::guard()->attempt([
             'email' => $request->email,
             'password' => $request->password,
-        ]);
-
-        if ($validation) {
+        ])) {
             return to_route('checkUser');
         } else {
             return redirect()
                 ->back()
-                ->with(['error' => 'Wrong Credential!'])
+                ->with(['error' => 'Login failed! Please try again.'])
                 ->withInput();
         }
     }
