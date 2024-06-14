@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'id',
         'url',
@@ -17,4 +18,9 @@ class Project extends Model
         'table_count',
         'language'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'student_id', 'id');
+    }
 }

@@ -25,5 +25,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::group(['prefix' => 'student', 'middleware' => 'student'], function () {
         Route::get('/', [StudentController::class, 'index'])->name('student');
+        Route::get('/project/details/{id}', [StudentController::class, 'projectDetails'])->name('projectDetails');
     });
 });
