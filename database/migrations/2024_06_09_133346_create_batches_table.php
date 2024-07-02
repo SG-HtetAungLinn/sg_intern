@@ -16,7 +16,11 @@ return new class () extends Migration {
             $table->string('duration', 100);
             $table->integer('fee');
             $table->tinyInteger('teacher_id');
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
+            $table->integer('deleted_by')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

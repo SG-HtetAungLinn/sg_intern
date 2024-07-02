@@ -25,6 +25,7 @@
         </div>
         <div class="swiper-pagination"></div>
     </div>
+    
     <div class="body-section">
         <div class="row mt-5">
             <div class="col-md-4 wow animate__animated animate__bounceInLeft mb-4">

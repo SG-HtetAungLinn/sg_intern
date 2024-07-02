@@ -14,7 +14,11 @@ return new class () extends Migration {
             $table->id();
             $table->integer('project_id');
             $table->string('path', 300);
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
+            $table->integer('deleted_by')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

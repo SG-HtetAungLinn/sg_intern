@@ -19,7 +19,11 @@ return new class () extends Migration {
             $table->integer('table_count');
             $table->string('language', 200);
             $table->string('thumbnail', 300);
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
+            $table->integer('deleted_by')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

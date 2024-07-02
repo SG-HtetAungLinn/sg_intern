@@ -22,7 +22,7 @@
 </head>
 
 <body style="background-color: #eff7ff;">
-    <header>
+    <header style="position: sticky; top:0; z-index: 200;">
         <div class="topnav"></div>
         <nav class="navbar">
             <div class="">
@@ -35,9 +35,9 @@
             <div class="navbar-links">
                 <ul>
                     <li><a href="{{ url('student') }}" title="Home">Home</a></li>
-                    <li><a href="#" title="About">About</a></li>
-                    <li><a href="#ourProject" title="Our Project">Our Project</a></li>
+                    <li><a href="{{ route('studentPorjects') }}" title="Our Project">Our Project</a></li>
                     <li><a href="#" title="Contact">Contact</a></li>
+                    <li><a href="#" title="About">About</a></li>
                     <li><a href="#" title="Logout"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                     </li>
@@ -56,9 +56,9 @@
         </a>
         <ul>
             <li><a href="#" class="btn btn-outline-secondary" title="Home">Home</a></li>
-            <li><a href="#" class="btn btn-outline-secondary" title="About">About</a></li>
-            <li><a href="#ourProject" class="btn btn-outline-secondary" title="Our Project">Our Project</a></li>
+            <li><a href="{{ route('studentPorjects') }}" class="btn btn-outline-secondary" title="Our Project">Our Project</a></li>
             <li><a href="#" class="btn btn-outline-secondary" title="Contact">Contact</a></li>
+            <li><a href="#" class="btn btn-outline-secondary" title="About">About</a></li>
             <form action="">
                 <li><a href="{{ route('logout') }}" class="btn btn-outline-secondary" title="Logout">Logout</a></li>
             </form>

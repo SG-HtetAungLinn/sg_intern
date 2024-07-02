@@ -24,4 +24,10 @@ class StudentController extends Controller
 
         return view('student.projects.details', compact('project'));
     }
+    public function projectList()
+    {
+        $projects = Project::with('user')
+                    ->paginate(2);
+        return view('student.projects.index', compact('projects'));
+    }
 }
